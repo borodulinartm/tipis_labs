@@ -135,36 +135,41 @@ class HuffmanCoding:
 
         return decoded_text
 
-# Чтение данных осуществляется из файла
-with open('../files/1/text_2.txt', 'r') as f:
-    data = f.read()
 
-print("Данные из файла получены")
+def main():
+    # Чтение данных осуществляется из файла (при необходимости заменить файл text_2 на text)
+    with open('../files/1/text_2.txt', 'r') as f:
+        data = f.read()
 
-# Кодируем данные
-h = HuffmanCoding()
+    print("Данные из файла получены")
 
-# Применяем метод компрессии данных
-binary_data = h.compress(data)
-# Применяем метод декомпрессии данных
-decoded_text = h.decompress(binary_data)
+    # Кодируем данные
+    h = HuffmanCoding()
 
-print(f"\nДлина бинарных символов: {len(binary_data)}")
-print(f"Количество символов '0': {binary_data.count('0')}, '1': {binary_data.count('1')}")
+    # Применяем метод компрессии данных
+    binary_data = h.compress(data)
+    # Применяем метод декомпрессии данных
+    decoded_text = h.decompress(binary_data)
 
-length = 0
-for code in h.codes.values():
-    length += len(code)
+    print(f"\nДлина бинарных символов: {len(binary_data)}")
+    print(f"Количество символов '0': {binary_data.count('0')}, '1': {binary_data.count('1')}")
 
-print(f"Средняя длина символов: {length / len(h.codes)}\n")
+    length = 0
+    for code in h.codes.values():
+        length += len(code)
 
-# Записывааем данные в файл
-with open('../files/1/decode.txt', 'w') as f:
-    f.write(binary_data)
+    print(f"Средняя длина символов: {length / len(h.codes)}\n")
 
-print("Закодированный текст по Хаффману успешно записан в файл")
+    # Записывааем данные в файл
+    with open('../files/1/decode.txt', 'w') as f:
+        f.write(binary_data)
 
-with open('../files/1/output.txt', 'w') as f:
-    f.write(decoded_text)
+    print("Закодированный текст по Хаффману успешно записан в файл")
 
-print("Декодированный файл успешно записан")
+    with open('../files/1/output.txt', 'w') as f:
+        f.write(decoded_text)
+
+    print("Декодированный файл успешно записан")
+
+if __name__ == "__main__":
+    main()
