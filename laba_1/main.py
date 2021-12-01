@@ -1,5 +1,6 @@
 import heapq
 
+
 # Класс узла
 class Node:
     def __init__(self, char, freq):
@@ -22,6 +23,7 @@ class Node:
 
     def __lt__(self, other):
         return self.frequency < other.frequency
+
 
 # Класс, который реализует кодирование по Хаффману
 class HuffmanCoding:
@@ -138,7 +140,7 @@ class HuffmanCoding:
 
 def main():
     # Чтение данных осуществляется из файла (при необходимости заменить файл text_2 на text)
-    with open('../files/1/text_2.txt', 'r') as f:
+    with open('../files/1/text.txt', 'r') as f:
         data = f.read()
 
     print("Данные из файла получены")
@@ -170,6 +172,7 @@ def main():
         f.write(decoded_text)
 
     print("Декодированный файл успешно записан")
+
 
 if __name__ == "__main__":
     main()

@@ -3,6 +3,7 @@ from random import randint
 
 import heapq
 
+
 # Класс узла
 class Node:
     def __init__(self, char, freq):
@@ -25,6 +26,7 @@ class Node:
 
     def __lt__(self, other):
         return self.frequency < other.frequency
+
 
 # Класс, который реализует кодирование по Хаффману
 class HuffmanCoding:
@@ -156,6 +158,7 @@ class HuffmanCoding:
 
         return decoded_text
 
+
 # Функция, осуществляющая "порчу данных" - инверсия бинарных значений с определённой вероятностью
 def make_worse_data(binary_data, probability):
     worse_binary_data = str()
@@ -183,7 +186,7 @@ def main(use_worse_data=False):
     binary_data = h.compress(data)
 
     # Записывааем данные в файл
-    with open('../files/2/decode.txt', 'w') as f:
+    with open('decode.txt', 'w') as f:
         f.write(binary_data)
 
     print("Закодированный текст по Хаффману успешно записан в файл")
@@ -216,5 +219,6 @@ def main(use_worse_data=False):
 
     print(f"Средняя длина символов: {length / len(h.codes)}\n")
 
+
 if __name__ == "__main__":
-    main(use_worse_data=False)
+    main(use_worse_data=True)
